@@ -50,7 +50,14 @@ Route::group(['middleware'=>'auth:api'],function (){
             '/donor_activity'=>'DonorActivityController'
         ]);
     });
-
+    Route::post('/email-unique',function($request){
+        //validation is email or not  and required
+      $count= \App\User::where('email',$request->get('email'))-get()->count();
+       if($count>0)
+           return response()->json(['error'=>'email is found','success'=>false]);
+       else
+           return response()->json(['message'=>'email is not found','success'=>true]);
+    });
 
     Route::apiResource('/patient','PatientsController')->middleware('can.access.patient');
 

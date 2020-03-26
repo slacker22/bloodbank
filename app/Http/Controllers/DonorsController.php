@@ -43,8 +43,8 @@ class DonorsController extends Controller
             'last_name'=>$request->get('last_name'),
             'gender'=>$request->get('gender'),
            // 'user_type_id'=>$request->get('user_type_id'),
-            'user_type_id'=>'5',
-            'donor_type_id'=>$request->get('donor_type_id'),
+            'user_type_id'=>5,
+            'donor_type_id'=>2,
             'phone'=>$request->get('phone'),
             'email'=>$request->get('email'),
             'user_name'=>$request->get('user_name'),
@@ -81,6 +81,7 @@ class DonorsController extends Controller
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        
     }
 
     /**
@@ -105,7 +106,7 @@ class DonorsController extends Controller
             'phone' => 'required|string|unique:users',
             //'user_type_id' => 'required|numeric',
             'blood_group_id' => 'required|numeric',
-            'donor_type_id' => 'required|numeric',
+            //'donor_type_id' => 'required|numeric',
 
         ];
         return Validator::make($data,$rules);

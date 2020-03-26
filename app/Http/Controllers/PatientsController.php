@@ -50,6 +50,12 @@ class PatientsController extends Controller
         return new PatientResource($patient);
     }
 
+    public function findPatientBySSN($request)
+    {
+        //validation => ssn is required
+        return new PatientResource(Patients::where('ssn',$request->get('ssn'))->get());
+    }
+
     /**
      * Update the specified resource in storage.
      *

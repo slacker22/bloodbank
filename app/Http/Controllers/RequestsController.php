@@ -20,7 +20,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        return RequestResource::collection(Requests::all());
+        return RequestResource::collection(Requests::paginate(5));
     }
 
     /**

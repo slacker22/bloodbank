@@ -28,6 +28,7 @@ class UserController extends Controller
         }else  if(Auth::attempt(['user_name' => request('username'), 'password' => request('password')])){
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
+            $success['user_type']= $user->type->id;
             return response()->json(['success' => $success], $this-> successStatus);
         }
         else{
@@ -67,7 +68,9 @@ class UserController extends Controller
 
     public function createUser($data)
     {
-
+//lowercase all the characters
+        //remove any space
+        // elbahr combine firstname + space + lastname
         $data['password'] = bcrypt($data['password']);
         return User::create([
             'full_name'=>$data['full_name'],
@@ -76,7 +79,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function index()
+    {
 
+   }
+
+    public function show(User $user)
+    {
+
+}
 
     public function successAction($user)
     {

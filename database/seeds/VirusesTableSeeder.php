@@ -17,7 +17,9 @@ class VirusesTableSeeder extends Seeder
             ['name' =>'Hepatitis A'],
             ['name' =>'Hepatitis B'],
             ['name' =>'Hepatitis C'],
-            ['name' =>'H1N1']
+            ['name' =>'H1N1'],
+            ['name' =>'COVID-19'],
+
 
         ];
 
