@@ -2,49 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorInfoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/HospitalStaff.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/StaffIndexResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/BloodProductsTableTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/DonorActivitiesTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/DonorsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/HandledRequestsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/RequestsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/StaffTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ImportExcelController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/BloodProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/BloodProducts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DonorActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DonorActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Donors.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Donors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BloodGroupsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BloodGroupsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorTypesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorTypesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductTypesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductTypesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StorageLocationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StorageLocationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserTypesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserTypesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VirusesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VirusesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2013_03_04_120410_create_user_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_03_04_120410_create_user_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2013_03_20_145422_create_donor_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_03_20_145422_create_donor_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_13_120904_create_staff_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_13_120904_create_staff_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_120635_create_blood_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_120635_create_blood_groups_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_120709_create_product_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_120709_create_product_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_120740_create_storage_locations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_120740_create_storage_locations_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_120837_create_viruses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_120837_create_viruses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_120928_create_donors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_120928_create_donors_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_121225_create_blood_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_121225_create_blood_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_121246_create_patients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_121246_create_patients_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PatientsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PatientsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +192,8 @@
       <workItem from="1585458103268" duration="17785000" />
       <workItem from="1585513428608" duration="601000" />
       <workItem from="1585578614024" duration="12005000" />
-      <workItem from="1585670212870" duration="594000" />
+      <workItem from="1585670212870" duration="849000" />
+      <workItem from="1585674916894" duration="2200000" />
     </task>
     <servers />
   </component>
@@ -274,19 +234,19 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="232" y="230" key="Vcs.Push.Dialog.v2/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585248939925" />
-    <state x="355" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1585670251876">
+    <state x="355" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1585674922938">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="355" y="257" key="com.intellij.ide.util.TipDialog/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584355856747" />
-    <state x="355" y="260" key="com.intellij.ide.util.TipDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585670251876" />
+    <state x="355" y="260" key="com.intellij.ide.util.TipDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585674922938" />
     <state x="355" y="260" key="com.intellij.ide.util.TipDialog/0.0.1280.994@0.0.1280.994" timestamp="1585452748552" />
     <state x="379" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583918912772" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1584894117190" />
-    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup" timestamp="1585595382891">
+    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup" timestamp="1585675923314">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="305" y="151" width="672" height="833" key="search.everywhere.popup/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584722112724" />
-    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585595382891" />
+    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585675923314" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1583331216994" />
     <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1585334585812" />
     <state x="325" y="112" width="716" height="616" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1583746619355" />
