@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Resources\DonorResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,28 +31,43 @@ Route::group(['middleware'=>'auth:api'],function (){
     Route::apiResource('/storage_location','StorageLocationController');
     Route::apiResource('/virus','VirusesController');
 
+
     Route::group(['middleware'=>'admin'],function(){
         Route::apiResources([
             '/staff'=>'StaffController',
             '/user'=>'UserController'
         ]);
     });
+//donor info controller  | put donor middleware on the route
+    Route::group(['middleware'=>'donor'],function (){
+        Route::get('/donor_info','DonorInfoController@showInfo');
+        Route::get('/donor_activities','DonorInfoController@showActivities');
 
+    });
+
+
+    //blood bank staff
     Route::group(['middleware'=>'blood.bank.staff'],function (){
         Route::apiResources([
             '/blood_product'=>'BloodProductsController',
-            '/handled_request'=>'HandledRequestsController'
+            '/handled_request'=>'HandledRequestsController',
+            '/donor'=>'DonorsController',
+            '/donor_activity'=>'DonorActivityController',
         ]);
     });
 
-    Route::group(['middleware'=>'can.access.donor.and.activity'],function (){
-        Route::apiResources([
-            '/donor'=>'DonorsController',
-            '/donor_activity'=>'DonorActivityController'
-        ]);
-    });
+
+
+
+
     Route::post('/email-unique',function($request){
         //validation is email or not  and required
+        $this->validate($request,
+            [
+                'email' => 'required|email',
+            ]
+        );
+
       $count= \App\User::where('email',$request->get('email'))-get()->count();
        if($count>0)
            return response()->json(['error'=>'email is found','success'=>false]);
@@ -59,7 +75,9 @@ Route::group(['middleware'=>'auth:api'],function (){
            return response()->json(['message'=>'email is not found','success'=>true]);
     });
 
+
     Route::apiResource('/patient','PatientsController')->middleware('can.access.patient');
+
 
     Route::apiResource('/request','RequestsController')->middleware('can.access.request');
 
@@ -67,7 +85,7 @@ Route::group(['middleware'=>'auth:api'],function (){
 
 });
 
-//Route::apiResource('/staff','StaffController');
+
 
 // Route::get('/donor/','DonorsController@index');
 // Route::patch('/donor/{donor}','DonorsController@update');

@@ -49,14 +49,15 @@ class HandledRequestsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\HandledRequests  $handledRequests
+     * @param  \App\HandledRequests  $handledRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HandledRequests $handledRequests)
+    public function update(Request $request, HandledRequests $handledRequest)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $handledRequest->update($request->all());
     }
 
     /**

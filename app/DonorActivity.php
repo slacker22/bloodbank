@@ -25,4 +25,9 @@ class DonorActivity extends Model
         return $this->belongsTo(ProductTypes::class,'product_type_id');
     }
 
+    public function products()
+    {
+        return $this->hasMany(BloodProducts::class);
+    }
+
 }

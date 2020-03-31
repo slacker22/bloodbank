@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
 
         'admin' => \App\Http\Middleware\Admin::class,
         'blood.bank.staff' => \App\Http\Middleware\BloodBankStaff::class,
+        'hospital.staff' => \App\Http\Middleware\HospitalStaff::class,
         'donor' => \App\Http\Middleware\Donor::class,
         'doctor' => \App\Http\Middleware\Doctor::class,
         'can.access.donor.and.activity' => \App\Http\Middleware\CanAccessDonorAndActivity::class,

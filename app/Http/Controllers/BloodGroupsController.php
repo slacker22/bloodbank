@@ -50,14 +50,15 @@ class BloodGroupsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\BloodGroups  $bloodGroups
+     * @param  \App\BloodGroups  $bloodGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BloodGroups $bloodGroups)
+    public function update(Request $request, BloodGroups $bloodGroup)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $bloodGroup->update($request->all());
     }
 
     /**

@@ -20,7 +20,7 @@ class CreateDonorsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('blood_group_id');
             $table->foreign('blood_group_id')->references('id')->on('blood_groups');
-            $table->unsignedBigInteger('donor_type_id');
+            $table->unsignedBigInteger('donor_type_id')->default(2);
             $table->foreign('donor_type_id')->references('id')->on('donor_types');
             $table->timestamps();
         });

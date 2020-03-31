@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateStaffTable extends Migration
@@ -19,6 +20,10 @@ class CreateStaffTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
+
+        /*Artisan::call('db:seed',[
+            '--class' => StaffTableSeeder::class
+        ]);*/
     }
 
     /**

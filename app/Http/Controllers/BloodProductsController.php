@@ -36,7 +36,8 @@ class BloodProductsController extends Controller
             'blood_group_id'=>$request->get('blood_group_id'),
             'product_type_id'=>$request->get('product_type_id'),
             'storage_location_id'=>$request->get('storage_location_id'),
-            'availability'=>$request->get('availability'),
+            'donor_activity_id'=>$request->get('donor_activity_id'),
+            'availability'=>1,
             'expire_on'=>Carbon::now()->addMonths(3)->format('Y-m-d H:i:s'),
 
 
@@ -59,14 +60,16 @@ class BloodProductsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\BloodProducts  $bloodProducts
+     * @param  \App\BloodProducts  $bloodProduct
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BloodProducts $bloodProducts)
+    public function update(Request $request, BloodProducts $bloodProduct)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $bloodProduct->update($request->all());
+        return new BloodProductResource($bloodProduct);
     }
 
     /**
@@ -87,7 +90,8 @@ class BloodProductsController extends Controller
             'blood_group_id' => 'required|numeric',
             'product_type_id' => 'required|numeric',
             'storage_location_id' => 'required|numeric',
-            'availability'=>'required|numeric',
+            'donor_activity_id' => 'required|numeric',
+            //'availability'=>'required|numeric',
             //'expire_on' => 'required|date_format:Y-m-d H:i:s',
 
         ];

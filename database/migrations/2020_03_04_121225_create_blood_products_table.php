@@ -22,8 +22,10 @@ class CreateBloodProductsTable extends Migration
             $table->foreign('product_type_id')->references('id')->on('product_types');
             $table->unsignedBigInteger('storage_location_id');
             $table->foreign('storage_location_id')->references('id')->on('storage_locations');
+            $table->unsignedBigInteger('donor_activity_id');
+            $table->foreign('donor_activity_id')->references('id')->on('donor_activities');
             $table->datetime('expire_on');
-            $table->integer('availability')->default('1');
+            $table->integer('availability')->default(1);
             $table->timestamps();
         });
     }

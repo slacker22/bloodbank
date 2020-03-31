@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
 			$table->string('last_name');
 			$table->integer('gender');
 			$table->string('phone')->unique();
-			$table->string('email')->unique();
+			$table->string('email')->nullable();
 			$table->timestamp('email_verified_at')->nullable();
             $table->string('user_name')->unique();
             $table->string('password');
@@ -31,9 +31,9 @@ class CreateUsersTable extends Migration
 
         });
 
-        Artisan::call('db:seed',[
+        /*Artisan::call('db:seed',[
             '--class' => UsersTableSeeder::class
-        ]);
+        ]);*/
     }
 
     /**

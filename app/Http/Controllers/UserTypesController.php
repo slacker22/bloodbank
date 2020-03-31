@@ -49,14 +49,15 @@ class UserTypesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserTypes  $userTypes
+     * @param  \App\UserTypes  $userType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserTypes $userTypes)
+    public function update(Request $request, UserTypes $userType)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $userType->update($request->all());
     }
 
     /**

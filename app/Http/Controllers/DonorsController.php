@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\Validator;
 
 class DonorsController extends Controller
 {
+    //donor controller is for staff only
     public function __construct()
     {
-        $this->middleware('donor',['only'=>'show']);
+        $this->middleware('blood.bank.staff')->except(['show']);//staff
+
+        $this->middleware('donor')->only('show');// both staff donor
     }
 
     /**
@@ -42,13 +45,16 @@ class DonorsController extends Controller
             'first_name'=>$request->get('first_name'),
             'last_name'=>$request->get('last_name'),
             'gender'=>$request->get('gender'),
-           // 'user_type_id'=>$request->get('user_type_id'),
-            'user_type_id'=>5,
-            'donor_type_id'=>2,
             'phone'=>$request->get('phone'),
             'email'=>$request->get('email'),
             'user_name'=>$request->get('user_name'),
             'password'=>bcrypt($request->get('password')),
+            'user_type_id'=>5,
+
+            //'ssn'=>$request->get('ssn'),
+            //'blood_group_id'=>$request->get('blood_group_id'),
+            //'donor_type_id'=>2,
+
         ]);
         $donor=$user->donor()->create($request->all());
         //$donor = Donors::create($request->all());
@@ -81,7 +87,13 @@ class DonorsController extends Controller
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
-        
+
+        $donor->user->update($request->only(['first_name','last_name','gender','phone','email','user_name','password']));//user attributes
+        $donor->update($request->only(['ssn','blood_group_id']));//donor attributes
+
+
+        return new DonorResource($donor);
+
     }
 
     /**
@@ -100,13 +112,16 @@ class DonorsController extends Controller
         $rules=[
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
-            'email' => 'sometimes|email|unique:users',
-            'ssn' => 'required|string|unique:donors',
             'gender' => 'required|numeric',
-            'phone' => 'required|string|unique:users',
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:users'],
+            'email' => 'sometimes|email|unique:users',
+            'user_name' => 'required|string|unique:users',
+            'password' => 'required',
             //'user_type_id' => 'required|numeric',
+
+            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/','unique:donors'],
             'blood_group_id' => 'required|numeric',
-            //'donor_type_id' => 'required|numeric',
+
 
         ];
         return Validator::make($data,$rules);

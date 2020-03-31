@@ -49,14 +49,15 @@ class DonorTypesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DonorTypes  $donorTypes
+     * @param  \App\DonorTypes  $donorType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DonorTypes $donorTypes)
+    public function update(Request $request, DonorTypes $donorType)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $donorType->update($request->all());
     }
 
     /**

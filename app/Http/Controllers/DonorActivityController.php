@@ -13,7 +13,7 @@ class DonorActivityController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('donor',['only'=>'show']);
+        $this->middleware('blood.bank.staff')->except('show');
     }
 
 
@@ -69,6 +69,8 @@ class DonorActivityController extends Controller
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $donorActivity->update($request->all());
+
     }
 
     /**

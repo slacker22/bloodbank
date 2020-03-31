@@ -58,6 +58,7 @@ class StorageLocationController extends Controller
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $storageLocation->update($request->all());
     }
 
     /**

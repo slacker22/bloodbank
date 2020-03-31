@@ -8,7 +8,7 @@ class Donors extends Model
 {
     //protected $guarded=[];
     protected $fillable = [
-        'user_id','blood_group_id','ssn','donor_type_id'
+        'ssn', 'user_id','blood_group_id','donor_type_id'
     ];
 
     public function user()
@@ -17,7 +17,7 @@ class Donors extends Model
     }
     public function donorActivities()
     {
-        return $this->hasMany(DonorActivity::class);
+        return $this->hasMany(DonorActivity::class,'id');
     }
     public function group()
     {

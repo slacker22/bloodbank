@@ -11,7 +11,9 @@ class RequestsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('doctor',['only'=>['index','show','store']]);
+
+        $this->middleware('can.access.request')->only(['index','show']);
+        $this->middleware('blood.bank.staff')->only(['store','update','destroy']);
     }
     /**
      * Display a listing of the resource.
@@ -53,14 +55,15 @@ class RequestsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Requests  $requests
+     * @param  \App\Requests  $requestt
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Requests $requests)
+    public function update(Request $request, Requests $requestt)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $requestt->update($request->all());
     }
 
     /**

@@ -25,6 +25,7 @@ class BloodProductResource extends JsonResource
             'created_at' => $this->created_at,
             'expire_on'=>$this->expire_on,
             'availability'=>$this->availability,
+            'donor_activity_id'=>$this->donor_activity_id,
 
 
             //Carbon::now()->addMonths(3)->format();

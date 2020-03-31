@@ -49,14 +49,15 @@ class VirusesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Viruses  $viruses
+     * @param  \App\Viruses  $virus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Viruses $viruses)
+    public function update(Request $request, Viruses $virus)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $virus->update($request->all());
     }
 
     /**

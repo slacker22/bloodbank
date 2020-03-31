@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\StaffIndexResource;
 use App\Http\Resources\StaffResource;
 use App\Http\Resources\UserResource;
 use App\Staff;
@@ -18,7 +19,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        return StaffResource::collection(Staff::all());
+        return StaffIndexResource::collection(Staff::all());
     }
 
     /**
@@ -69,6 +70,7 @@ class StaffController extends Controller
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $staff->user->update($request->all());
     }
 
     /**
@@ -87,10 +89,14 @@ class StaffController extends Controller
         $rules=[
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
-            'email' => 'required|email|unique:users',
             'gender' => 'required|numeric',
-            'phone' => 'required|string|unique:users',
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:users'],
+            'email' => 'required|email|unique:users',
+            'user_name' => 'required|string|unique:users',
+            'password' => 'required',
             'user_type_id' => 'required|numeric',
+
+
         ];
         return Validator::make($data,$rules);
     }
