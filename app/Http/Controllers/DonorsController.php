@@ -17,7 +17,11 @@ class DonorsController extends Controller
     {
         $this->middleware('blood.bank.staff')->except(['show']);//staff
 
-        $this->middleware('donor')->only('show');// both staff donor
+        //only donor could use show method
+       // $this->middleware('donor')->only('show');// both staff donor
+
+        //both donor and blood bank staff can use show method
+        $this->middleware('can.access.donor.and.activity')->only('show');
     }
 
     /**
@@ -47,18 +51,17 @@ class DonorsController extends Controller
             'gender'=>$request->get('gender'),
             'phone'=>$request->get('phone'),
             'email'=>$request->get('email'),
-            'user_name'=>$request->get('user_name'),
-            'password'=>bcrypt($request->get('password')),
+            'user_name'=>$request->get('first_name').'.'.$request->get('last_name').'.'.rand(100000,999999),
+            'password'=>bcrypt($request->get('phone')),
             'user_type_id'=>5,
-
-            //'ssn'=>$request->get('ssn'),
-            //'blood_group_id'=>$request->get('blood_group_id'),
-            //'donor_type_id'=>2,
-
         ]);
-        $donor=$user->donor()->create($request->all());
-        //$donor = Donors::create($request->all());
 
+        //$donor=$user->donor()->create($request->all());
+        $donor=$user->donor()->create([
+            'ssn'=>$request->get('ssn'),
+            'blood_group_id'=>$request->get('blood_group_id'),
+            'donor_type_id'=>2,
+        ]);
 
         return new DonorResource($donor);
     }
@@ -71,7 +74,7 @@ class DonorsController extends Controller
      */
     public function show(Donors $donor)
     {
-        return new DonorResource($donor); //for only one donor
+        return new DonorResource($donor);
 
     }
 
@@ -104,7 +107,8 @@ class DonorsController extends Controller
      */
     public function destroy(Donors $donor)
     {
-        //
+        $donor->delete();
+        return response()->json(null,204);
     }
 
     public function validator($data)
@@ -115,10 +119,6 @@ class DonorsController extends Controller
             'gender' => 'required|numeric',
             'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:users'],
             'email' => 'sometimes|email|unique:users',
-            'user_name' => 'required|string|unique:users',
-            'password' => 'required',
-            //'user_type_id' => 'required|numeric',
-
             'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/','unique:donors'],
             'blood_group_id' => 'required|numeric',
 

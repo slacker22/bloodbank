@@ -6,6 +6,7 @@ use App\BloodProducts;
 use App\Http\Resources\BloodProductResource;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class BloodProductsController extends Controller
@@ -82,6 +83,7 @@ class BloodProductsController extends Controller
     {
         //
     }
+
 
     public function validator($data)
     {

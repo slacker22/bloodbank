@@ -14,6 +14,9 @@ class DonorActivityController extends Controller
     public function __construct()
     {
         $this->middleware('blood.bank.staff')->except('show');
+
+        //both donor and blood bank staff can use show method
+        $this->middleware('can.access.donor.and.activity')->only('show');
     }
 
 
@@ -54,7 +57,11 @@ class DonorActivityController extends Controller
      */
     public function show(DonorActivity $donorActivity)
     {
-        return new DonorActivityResource($donorActivity);
+        //return new DonorActivityResource($donorActivity);
+
+        $id = $donorActivity->id;
+        return DonorActivityResource::collection(DonorActivity::whereIn('donor_id',[$id])->get());
+
     }
 
     /**

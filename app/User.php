@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
     public function donor()
     {
-        return $this->hasOne(Donors::class,'user_id');
+        return $this->hasOne(Donors::class);
     }
     public function staff()
     {

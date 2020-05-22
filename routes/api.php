@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Resources\DonorResource;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,8 +38,10 @@ Route::group(['middleware'=>'auth:api'],function (){
             '/staff'=>'StaffController',
             '/user'=>'UserController'
         ]);
+        Route::get('/import_excel', 'ImportExcelController@index');
+        Route::post('/import_excel/import', 'ImportExcelController@import');
     });
-//donor info controller  | put donor middleware on the route
+
     Route::group(['middleware'=>'donor'],function (){
         Route::get('/donor_info','DonorInfoController@showInfo');
         Route::get('/donor_activities','DonorInfoController@showActivities');
@@ -53,7 +56,35 @@ Route::group(['middleware'=>'auth:api'],function (){
             '/handled_request'=>'HandledRequestsController',
             '/donor'=>'DonorsController',
             '/donor_activity'=>'DonorActivityController',
+            '/expired_product'=>'ExpiredProductsController',
+
         ]);
+
+        Route::get('stock',function(){
+
+            /*$blood = DB::table('blood_products')
+                ->where('availability','=',1)
+                ->where('product_type_id','=',1)
+                ->select('blood_group_id' , DB::raw('count(*) as total'))
+                ->groupBy('blood_group_id')
+                ->get();
+            echo $blood;*/
+
+           /* $productTypes = DB::table('blood_products')
+                ->where('availability','=',1)
+                ->select('product_type_id' , DB::raw('count(*) as total'))
+                ->groupBy('product_type_id')
+                ->get();
+            echo $productTypes;*/
+
+            return DB::table('blood_products')
+                ->where('availability','=',1)
+                ->select('blood_group_id','product_type_id' , DB::raw('count(*) as total'))
+                ->groupBy('blood_group_id','product_type_id')
+                ->get();
+
+
+        });
     });
 
 
