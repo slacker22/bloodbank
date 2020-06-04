@@ -28,17 +28,6 @@ class BloodProductResource extends JsonResource
             'donor_activity_id'=>$this->donor_activity_id,
 
 
-            //Carbon::now()->addMonths(3)->format();
-
-
-
-            //BloodProducts::all()->filter(function($product){
-            //            if( Carbon::now()->diff($product->expire_on)<2)
-            //            return  $product;
-            //        });
-
-            // using pusher
-
         ];
     }
 }

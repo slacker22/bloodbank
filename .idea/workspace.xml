@@ -2,29 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpiredProductsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Imports/UsersImport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DonorTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DonorTypes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Donors.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Donors.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImportExcelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImportExcelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/DonorResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/DonorResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/StaffIndexResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Staff.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Staff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2013_03_20_145422_create_donor_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_03_20_145422_create_donor_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_13_120904_create_staff_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_13_120904_create_staff_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_120928_create_donors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_120928_create_donors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DonorsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DonorsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PatientsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PatientsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RequestsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RequestsTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,6 +221,13 @@
       <workItem from="1589398344111" duration="6679000" />
       <workItem from="1590090310944" duration="15677000" />
       <workItem from="1590184773595" duration="986000" />
+      <workItem from="1590551255269" duration="600000" />
+      <workItem from="1590816668086" duration="5921000" />
+      <workItem from="1591091857156" duration="16000" />
+      <workItem from="1591091936615" duration="84000" />
+      <workItem from="1591140064872" duration="599000" />
+      <workItem from="1591224365817" duration="1191000" />
+      <workItem from="1591247610050" duration="12201000" />
     </task>
     <servers />
   </component>
@@ -270,19 +268,19 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="232" y="230" key="Vcs.Push.Dialog.v2/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585248939925" />
-    <state x="355" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1590184771996">
+    <state x="355" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1591248257817">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="355" y="257" key="com.intellij.ide.util.TipDialog/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584355856747" />
-    <state x="355" y="260" key="com.intellij.ide.util.TipDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1590184771996" />
+    <state x="355" y="260" key="com.intellij.ide.util.TipDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591248257817" />
     <state x="355" y="260" key="com.intellij.ide.util.TipDialog/0.0.1280.994@0.0.1280.994" timestamp="1585452748552" />
     <state x="379" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583918912772" />
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1589222848849" />
-    <state x="325" y="114" width="716" height="624" key="search.everywhere.popup" timestamp="1589231895903">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1590816689236" />
+    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup" timestamp="1591249184395">
+      <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="305" y="151" width="672" height="833" key="search.everywhere.popup/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584722112724" />
-    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585675923314" />
+    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591249184395" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1583331216994" />
     <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1585334585812" />
     <state x="325" y="112" width="716" height="616" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1583746619355" />

@@ -91,11 +91,10 @@ class DonorsController extends Controller
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
 
-        $donor->user->update($request->only(['first_name','last_name','gender','phone','email','user_name','password']));//user attributes
+        $donor->user->update($request->only(['first_name','last_name','gender','phone','email']));//user attributes
         $donor->update($request->only(['ssn','blood_group_id']));//donor attributes
+        return response()->json($donor,200);
 
-
-        return new DonorResource($donor);
 
     }
 
@@ -107,8 +106,7 @@ class DonorsController extends Controller
      */
     public function destroy(Donors $donor)
     {
-        $donor->delete();
-        return response()->json(null,204);
+
     }
 
     public function validator($data)
@@ -117,9 +115,9 @@ class DonorsController extends Controller
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
             'gender' => 'required|numeric',
-            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:users'],
-            'email' => 'sometimes|email|unique:users',
-            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/','unique:donors'],
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/'],
+            'email' => 'sometimes|email',
+            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/'],
             'blood_group_id' => 'required|numeric',
 
 

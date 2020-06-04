@@ -68,26 +68,28 @@ class PatientsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Patients  $patients
+     * @param  \App\Patients  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Patients $patients)
+    public function update(Request $request, Patients $patient)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
-        $patients->update($request->all());
+        $patient->update($request->all());
+        return response()->json($patient,200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Patients  $patients
+     * @param  \App\Patients  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patients $patients)
+    public function destroy(Patients $patient)
     {
-        //
+
+
     }
 
     public function validator($data)
@@ -95,9 +97,9 @@ class PatientsController extends Controller
         $rules=[
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
-            'ssn' => 'required|string|regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/|unique:patients',
+            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/'],
             'gender' => 'required|numeric',
-            'phone' => 'required|string|regex:/^(010|011|012|015){1}[0-9]{8}$/|unique:patients',
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/'],
             'blood_group_id' => 'required|numeric',
 
 

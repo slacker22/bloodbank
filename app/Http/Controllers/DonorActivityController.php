@@ -77,6 +77,7 @@ class DonorActivityController extends Controller
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
         $donorActivity->update($request->all());
+        return response()->json($donorActivity,200);
 
     }
 

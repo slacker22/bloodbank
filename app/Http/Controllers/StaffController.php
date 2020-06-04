@@ -71,9 +71,10 @@ class StaffController extends Controller
      */
     public function update(Request $request, Staff $staff)
     {
-        /*$validator=$this->validator($request->all());
+        $validator=$this->validator($request->all());
         if($validator->fails())
-            return response()->json(['errors'=>$validator->errors()->all()],401);*/
+            return response()->json(['errors'=>$validator->errors()->all()],401);
+
         $staff->user->update($request->all());
         return response()->json($staff,200);
 
@@ -88,9 +89,7 @@ class StaffController extends Controller
     public function destroy(Staff $staff)
     {
 
-        $staff->delete();
 
-        return response()->json(null,204);
     }
 
     public function validator($data)
@@ -99,8 +98,8 @@ class StaffController extends Controller
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
             'gender' => 'required|numeric',
-            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:users'],
-            'email' => 'required|email|unique:users',
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/'],
+            'email' => 'required|email',
             //'user_name' => 'required|string|unique:users',
             //'password' => 'required',
             'user_type_id' => 'required|numeric',

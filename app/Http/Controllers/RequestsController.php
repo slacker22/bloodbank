@@ -13,7 +13,7 @@ class RequestsController extends Controller
     {
 
         $this->middleware('can.access.request')->only(['index','show']);
-        $this->middleware('blood.bank.staff')->only(['store','update','destroy']);
+        $this->middleware('doctor')->only(['store','update','destroy']);
     }
     /**
      * Display a listing of the resource.
@@ -36,7 +36,17 @@ class RequestsController extends Controller
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
-        $requestt = Requests::create($request->all());
+        $requestt = Requests::create([
+            'patient_id' =>$request->get('patient_id'),
+            'blood_group_id' =>$request->get('blood_group_id'),
+            'product_type_id' =>$request->get('product_type_id'),
+            'quantity' =>$request->get('quantity'),
+            'priority' =>$request->get('priority'),
+            'required_date' =>$request->get('required_date'),
+            'submitted_by'=>auth()->user()->staff->id,
+            'status'=>0,
+
+        ]);
         return new RequestResource($requestt);
     }
 
@@ -55,15 +65,16 @@ class RequestsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Requests  $requestt
+     * @param  \App\Requests  $Request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Requests $requestt)
+    public function update(Request $request, Requests $Request)
     {
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
-        $requestt->update($request->all());
+        $Request->update($request->all());
+        return response()->json($Request,200);
     }
 
     /**
@@ -80,7 +91,7 @@ class RequestsController extends Controller
     public function validator($data)
 
     {   //$current_time=\Carbon\Carbon::now();
-        $today = \Carbon\Carbon::today()->format('Y-m-d');
+        $now = \Carbon\Carbon::today()->format('Y-m-d');
 
         $rules=[
             'patient_id' => 'required|numeric',
@@ -88,10 +99,10 @@ class RequestsController extends Controller
             'product_type_id' => 'required|numeric',
             'quantity' => 'required|numeric',
             'priority' => 'required|numeric',
-            //'required_date' => ['date_format:Y-m-d H:i:s',"after_or_equal:$current_time"],
-            'required_date' => ['date_format:Y-m-d',"after_or_equal:$today"],
-            'submitted_by' => 'required|numeric',
-            'status' => 'required|numeric',
+            'required_date' => ['required','date','date_format:Y-m-d','after_or_equal:' . date('Y-m-d'), ],
+            //'required_date' => ['required','date_format:Y-m-d',"after_or_equal:$now"],
+            //'submitted_by' => 'required|numeric',
+            //'status' => 'required|numeric',
 
         ];
         return Validator::make($data,$rules);

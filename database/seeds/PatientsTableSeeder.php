@@ -16,30 +16,30 @@ class PatientsTableSeeder extends Seeder
             [
                 'first_name'=>'patient1',
                 'last_name'=>'patient1',
-                'ssn'=>'29457675846',
+                'ssn'=>'29804111801234',
                 'gender'=>1,
                 'blood_group_id'=>1,
-                'phone'=>'01235489',
+                'phone'=>'01006816600',
                 'address'=> 'address address address address'
             ],
 
             [
                 'first_name'=>'patient2',
                 'last_name'=>'patient2',
-                'ssn'=>'29457675333',
+                'ssn'=>'29804111801223',
                 'gender'=>2,
                 'blood_group_id'=>2,
-                'phone'=>'0123548666',
+                'phone'=>'01006816601',
                 'address'=> 'address address address address'
             ],
 
             [
                 'first_name'=>'patient3',
                 'last_name'=>'patient3',
-                'ssn'=>'2945767588886',
+                'ssn'=>'29804111802324',
                 'gender'=>1,
                 'blood_group_id'=>3,
-                'phone'=>'0123548777',
+                'phone'=>'01006816602',
                 'address'=> 'address address address address'
             ],
 

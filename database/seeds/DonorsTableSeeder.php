@@ -25,11 +25,10 @@ class DonorsTableSeeder extends Seeder
             'password'=>bcrypt('password'),
             'user_type_id'=>5,
 
-
         ]);
         $user->donor()->create([
 
-            'ssn'=>'29504111804524',
+            'ssn'=>'29804111802456',
             'donor_type_id'=>2,
             'blood_group_id'=>1,
         ]);
@@ -44,13 +43,10 @@ class DonorsTableSeeder extends Seeder
             'password'=>bcrypt('password'),
             'user_type_id'=>5,
 
-
-
-
         ]);
         $user->donor()->create([
 
-            'ssn'=>'29504111804525',
+            'ssn'=>'29804111807878',
             'donor_type_id'=>2,
             'blood_group_id'=>2,
         ]);
@@ -65,15 +61,10 @@ class DonorsTableSeeder extends Seeder
             'password'=>bcrypt('password'),
             'user_type_id'=>5,
 
-
-
-
-
-
         ]);
         $user->donor()->create([
 
-            'ssn'=>'29504111804526',
+            'ssn'=>'29804111807989',
             'donor_type_id'=>2,
             'blood_group_id'=>3,
         ]);

@@ -19,7 +19,7 @@ class RequestsTableSeeder extends Seeder
                 'product_type_id'=>1,
                 'quantity'=>1,
                 'priority'=>1,
-                'required_date'=>'2020/08/01',
+                'required_date'=>'2020-08-01',
                 'submitted_by'=> 4,
                 'status'=>0
             ],
@@ -29,7 +29,7 @@ class RequestsTableSeeder extends Seeder
                 'product_type_id'=>2,
                 'quantity'=>1,
                 'priority'=>1,
-                'required_date'=>'2020/08/01',
+                'required_date'=>'2020-08-01',
                 'submitted_by'=> 4,
                 'status'=>0
             ],
@@ -39,7 +39,7 @@ class RequestsTableSeeder extends Seeder
                 'product_type_id'=>3,
                 'quantity'=>1,
                 'priority'=>1,
-                'required_date'=>'2020/08/01',
+                'required_date'=>'2020-08-01',
                 'submitted_by'=> 4,
                 'status'=>0
             ],

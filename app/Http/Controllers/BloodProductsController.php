@@ -70,7 +70,7 @@ class BloodProductsController extends Controller
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
         $bloodProduct->update($request->all());
-        return new BloodProductResource($bloodProduct);
+        return response()->json($bloodProduct,200);
     }
 
     /**
@@ -88,7 +88,7 @@ class BloodProductsController extends Controller
     public function validator($data)
     {
         $rules=[
-            'barcode' => 'required|numeric|unique:blood_products',
+            'barcode' => 'required|numeric',
             'blood_group_id' => 'required|numeric',
             'product_type_id' => 'required|numeric',
             'storage_location_id' => 'required|numeric',

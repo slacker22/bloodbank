@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\HandledRequests;
 use App\Http\Resources\HandledRequestResource;
+use App\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,6 +32,8 @@ class HandledRequestsController extends Controller
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
         $handledRequest = HandledRequests::create($request->all());
+        //update request status from zero to one after handling it.
+        Requests::where('id', $handledRequest->request_id)->update(['status' => 1]);
         return new HandledRequestResource($handledRequest);
     }
 
@@ -58,6 +61,7 @@ class HandledRequestsController extends Controller
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
         $handledRequest->update($request->all());
+        return response()->json($handledRequest,200);
     }
 
     /**
