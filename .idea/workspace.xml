@@ -5,17 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpiredProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpiredProductsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DonorsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DonorsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PatientsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PatientsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/RequestsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RequestsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/StaffResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/StaffResource.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +16,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -150,11 +140,11 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -228,20 +218,23 @@
       <workItem from="1591140064872" duration="599000" />
       <workItem from="1591224365817" duration="1191000" />
       <workItem from="1591247610050" duration="12201000" />
+      <workItem from="1591431230776" duration="21000" />
+      <workItem from="1591614308471" duration="150000" />
+      <workItem from="1591614928345" duration="6011000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="233" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585513165959">
+    <state x="320" y="233" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591614336935">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="320" y="233" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585513165959" />
+    <state x="320" y="233" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591614336935" />
     <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583873338716">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -268,14 +261,14 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="232" y="230" key="Vcs.Push.Dialog.v2/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1585248939925" />
-    <state x="355" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1591248257817">
+    <state x="355" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1591614322994">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="355" y="257" key="com.intellij.ide.util.TipDialog/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584355856747" />
-    <state x="355" y="260" key="com.intellij.ide.util.TipDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591248257817" />
+    <state x="355" y="260" key="com.intellij.ide.util.TipDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591614322994" />
     <state x="355" y="260" key="com.intellij.ide.util.TipDialog/0.0.1280.994@0.0.1280.994" timestamp="1585452748552" />
     <state x="379" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583918912772" />
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1590816689236" />
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1591431235093" />
     <state x="305" y="153" width="672" height="842" key="search.everywhere.popup" timestamp="1591249184395">
       <screen x="0" y="0" width="1280" height="994" />
     </state>

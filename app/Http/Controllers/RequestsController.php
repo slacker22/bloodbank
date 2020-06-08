@@ -22,7 +22,8 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        return RequestResource::collection(Requests::paginate(5));
+        //return RequestResource::collection(Requests::paginate(5));
+        return RequestResource::collection(Requests::where('status','=',0)->get());
     }
 
     /**
@@ -91,7 +92,7 @@ class RequestsController extends Controller
     public function validator($data)
 
     {   //$current_time=\Carbon\Carbon::now();
-        $now = \Carbon\Carbon::today()->format('Y-m-d');
+        //$now = \Carbon\Carbon::today()->format('Y-m-d');
 
         $rules=[
             'patient_id' => 'required|numeric',

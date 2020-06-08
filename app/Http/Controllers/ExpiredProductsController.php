@@ -30,7 +30,7 @@ class ExpiredProductsController extends Controller
                 });*/
         return BloodProductResource::collection(BloodProducts::all()->filter(function ($product){
             if( Carbon::now()->diff($product->expire_on)->days<2)
-                return $product;
+               return $product;
         }));
 
 

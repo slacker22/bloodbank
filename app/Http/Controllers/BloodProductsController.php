@@ -18,7 +18,8 @@ class BloodProductsController extends Controller
      */
     public function index()
     {
-        return BloodProductResource::collection(BloodProducts::all());
+        //get all products with availability equals one
+        return BloodProductResource::collection(BloodProducts::where('availability','=',1)->get());
     }
 
     /**
@@ -54,7 +55,9 @@ class BloodProductsController extends Controller
      */
     public function show(BloodProducts $bloodProduct)
     {
+
         return new BloodProductResource($bloodProduct);
+
     }
 
     /**
@@ -76,12 +79,13 @@ class BloodProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\BloodProducts  $bloodProducts
+     * @param  \App\BloodProducts  $bloodProduct
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BloodProducts $bloodProducts)
+    public function destroy(BloodProducts $bloodProduct)
     {
-        //
+        $bloodProduct->update(['availability' =>0]);
+        return response()->json($bloodProduct,200);
     }
 
 
