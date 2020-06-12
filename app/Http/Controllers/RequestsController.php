@@ -22,7 +22,6 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        //return RequestResource::collection(Requests::paginate(5));
         return RequestResource::collection(Requests::where('status','=',0)->get());
     }
 
@@ -81,12 +80,12 @@ class RequestsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Requests  $requests
+     * @param  \App\Requests  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Requests $requests)
+    public function destroy(Requests $request)
     {
-        //
+        $request->delete();
     }
 
     public function validator($data)

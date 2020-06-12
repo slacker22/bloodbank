@@ -89,7 +89,7 @@ class DonorActivityController extends Controller
      */
     public function destroy(DonorActivity $donorActivity)
     {
-        //
+        $donorActivity->delete();
     }
 
     public function validator($data)

@@ -32,10 +32,11 @@ Route::group(['middleware'=>'auth:api'],function (){
     Route::apiResource('/storage_location','StorageLocationController');
     Route::apiResource('/virus','VirusesController');
 
+    Route::apiResource('/staff','StaffController')->middleware('can.access.staff.show');
 
     Route::group(['middleware'=>'admin'],function(){
         Route::apiResources([
-            '/staff'=>'StaffController',
+            //'/staff'=>'StaffController',
             '/user'=>'UserController'
         ]);
         Route::get('/import_excel', 'ImportExcelController@index');
@@ -78,7 +79,8 @@ Route::group(['middleware'=>'auth:api'],function (){
             echo $productTypes;*/
 
             return DB::table('blood_products')
-                ->where('availability','=',1)
+                //->where('availability','=',1)
+                ->where('deleted_at','=',null)
                 ->select('blood_group_id','product_type_id' , DB::raw('count(*) as total'))
                 ->groupBy('blood_group_id','product_type_id')
                 ->get();
@@ -106,6 +108,16 @@ Route::group(['middleware'=>'auth:api'],function (){
            return response()->json(['message'=>'email is not found','success'=>true]);
     });
 
+
+
+    /*Route::group(['middleware'=>'can.access.patient'],function(){
+        Route::apiResources([
+            '/patient'=>'PatientsController',
+
+        ]);
+        Route::get('/find_patient', 'PatientsController@findPatientBySSN');
+
+    });*/
 
     Route::apiResource('/patient','PatientsController')->middleware('can.access.patient');
 

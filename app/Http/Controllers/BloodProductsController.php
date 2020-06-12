@@ -18,8 +18,9 @@ class BloodProductsController extends Controller
      */
     public function index()
     {
-        //get all products with availability equals one
-        return BloodProductResource::collection(BloodProducts::where('availability','=',1)->get());
+
+        return BloodProductResource::collection(BloodProducts::all());
+
     }
 
     /**
@@ -39,7 +40,6 @@ class BloodProductsController extends Controller
             'product_type_id'=>$request->get('product_type_id'),
             'storage_location_id'=>$request->get('storage_location_id'),
             'donor_activity_id'=>$request->get('donor_activity_id'),
-            'availability'=>1,
             'expire_on'=>Carbon::now()->addMonths(3)->format('Y-m-d H:i:s'),
 
 
@@ -84,8 +84,10 @@ class BloodProductsController extends Controller
      */
     public function destroy(BloodProducts $bloodProduct)
     {
-        $bloodProduct->update(['availability' =>0]);
-        return response()->json($bloodProduct,200);
+
+
+        $bloodProduct->delete();
+
     }
 
 
@@ -97,7 +99,6 @@ class BloodProductsController extends Controller
             'product_type_id' => 'required|numeric',
             'storage_location_id' => 'required|numeric',
             'donor_activity_id' => 'required|numeric',
-            //'availability'=>'required|numeric',
             //'expire_on' => 'required|date_format:Y-m-d H:i:s',
 
         ];

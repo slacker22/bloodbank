@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Donors extends Model
 {
+    use SoftDeletes;
     //protected $guarded=[];
     protected $fillable = [
         'ssn', 'user_id','blood_group_id','donor_type_id',

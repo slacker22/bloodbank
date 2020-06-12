@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -71,6 +72,8 @@ class Kernel extends HttpKernel
         'can.access.donor.and.activity' => \App\Http\Middleware\CanAccessDonorAndActivity::class,
         'can.access.patient' => \App\Http\Middleware\CanAccessPatient::class,
         'can.access.request' => \App\Http\Middleware\CanAccessRequest::class,
+        'can.access.staff.show' => \App\Http\Middleware\CanAccessStaffShow::class,
+
 
     ];
 }

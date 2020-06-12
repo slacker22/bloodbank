@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DonorActivity extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'donor_id','product_type_id','temperature','weight','height','status','comments',
     ];

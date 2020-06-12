@@ -52,7 +52,7 @@ class PatientsController extends Controller
         return new PatientResource($patient);
     }
 
-    public function findPatientBySSN($request)
+    public function findPatientBySSN(Request $request)
     {
         //validation => ssn is required
         $this->validate($request,
@@ -62,6 +62,7 @@ class PatientsController extends Controller
         );
 
         return new PatientResource(Patients::where('ssn',$request->get('ssn'))->get());
+
     }
 
     /**
@@ -88,8 +89,7 @@ class PatientsController extends Controller
      */
     public function destroy(Patients $patient)
     {
-
-
+        $patient->delete();
     }
 
     public function validator($data)

@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Validator;
 
 class StaffController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except('show');
+
+        $this->middleware('can.access.staff.show')->only('show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -74,8 +81,17 @@ class StaffController extends Controller
         $validator=$this->validator($request->all());
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
+        $data=[];
+        if($staff->user->full_name!= $request->get('full_name'))
+            $data['full_name']=$request->get('full_name');
+        if($request->get('email')==$request->get('confirmed_email')){
+            ///update
+        }else
+            return response()->json(['error'=>'you have to confirm your email'],401);
 
-        $staff->user->update($request->all());
+        if(sizeof($data)>0)
+            $staff->user->update($data);
+//        $staff->user->update($request->all());
         return response()->json($staff,200);
 
     }
@@ -88,6 +104,7 @@ class StaffController extends Controller
      */
     public function destroy(Staff $staff)
     {
+        $staff->delete();
 
 
     }

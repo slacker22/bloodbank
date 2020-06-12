@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Requests extends Model
 {
+    use SoftDeletes;
     //protected $guarded=[];
     protected $fillable = [
         'patient_id','blood_group_id','product_type_id','quantity','priority','required_date', 'submitted_by', 'handled_by','status',

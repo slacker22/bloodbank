@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BloodProducts extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
-        'barcode','blood_group_id','product_type_id','storage_location_id','expire_on','availability','donor_activity_id'
+        'barcode','blood_group_id','product_type_id','storage_location_id','expire_on','donor_activity_id'
     ];
 
     public function group()
@@ -39,4 +41,6 @@ class BloodProducts extends Model
     {
         return $this->belongsTo(DonorActivity::class,'donor_activity_id');
     }
+
+
 }

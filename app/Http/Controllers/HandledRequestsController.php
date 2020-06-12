@@ -67,12 +67,13 @@ class HandledRequestsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\HandledRequests  $handledRequests
+     * @param  \App\HandledRequests  $handledRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HandledRequests $handledRequests)
+    public function destroy(HandledRequests $handledRequest)
     {
-        //
+        $handledRequest->delete();
+
     }
 
     public function validator($data)

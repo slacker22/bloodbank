@@ -24,7 +24,6 @@ class BloodProductResource extends JsonResource
             'storage_location'=>$this->location->name,
             'created_at' => $this->created_at,
             'expire_on'=>$this->expire_on,
-            'availability'=>$this->availability,
             'donor_activity_id'=>$this->donor_activity_id,
 
 

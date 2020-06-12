@@ -18,7 +18,7 @@ class DonorsController extends Controller
         $this->middleware('blood.bank.staff')->except(['show']);//staff
 
         //only donor could use show method
-       // $this->middleware('donor')->only('show');// both staff donor
+       // $this->middleware('donor')->only('show');
 
         //both donor and blood bank staff can use show method
         $this->middleware('can.access.donor.and.activity')->only('show');
@@ -31,7 +31,7 @@ class DonorsController extends Controller
      */
     public function index()
     {
-        return DonorResource::collection(Donors::all()); // for many donors
+        return DonorResource::collection(Donors::all());
     }
 
     /**
@@ -106,7 +106,7 @@ class DonorsController extends Controller
      */
     public function destroy(Donors $donor)
     {
-
+        $donor->delete();
     }
 
     public function validator($data)

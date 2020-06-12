@@ -2,12 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CanAccessStaffShow.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_08_194445_add_soft_delete_staff.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_064432_add_soft_delete_donor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_064957_add_soft_delete_donor_activity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_071609_add_soft_delete_blood_product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_091821_add_soft_delete_handled_request.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_093019_add_soft_delete_request.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_12_143653_add_soft_delete_patient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/BloodProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/BloodProducts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/DonorActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DonorActivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Donors.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Donors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/HandledRequests.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/HandledRequests.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpiredProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpiredProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/BloodProductResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/StaffResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/StaffResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Patients.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Patients.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Requests.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Requests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Staff.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Staff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_13_120904_create_staff_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_13_120904_create_staff_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_04_121225_create_blood_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_04_121225_create_blood_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/BloodProductsTableTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BloodProductsTableTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +245,9 @@
       <workItem from="1591247610050" duration="12201000" />
       <workItem from="1591431230776" duration="21000" />
       <workItem from="1591614308471" duration="150000" />
-      <workItem from="1591614928345" duration="6011000" />
+      <workItem from="1591614928345" duration="13161000" />
+      <workItem from="1591770124848" duration="9082000" />
+      <workItem from="1591968585276" duration="5820000" />
     </task>
     <servers />
   </component>
@@ -269,13 +296,13 @@
     <state x="355" y="260" key="com.intellij.ide.util.TipDialog/0.0.1280.994@0.0.1280.994" timestamp="1585452748552" />
     <state x="379" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583918912772" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1591431235093" />
-    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup" timestamp="1591249184395">
+    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup" timestamp="1591645995409">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="305" y="151" width="672" height="833" key="search.everywhere.popup/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584722112724" />
     <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591249184395" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1583331216994" />
-    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1585334585812" />
+    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1591645995409" />
     <state x="325" y="112" width="716" height="616" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1583746619355" />
     <state x="325" y="114" width="716" height="624" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1589231895903" />
   </component>
