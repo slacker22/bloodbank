@@ -110,19 +110,11 @@ Route::group(['middleware'=>'auth:api'],function (){
 
 
 
-    /*Route::group(['middleware'=>'can.access.patient'],function(){
-        Route::apiResources([
-            '/patient'=>'PatientsController',
-
-        ]);
-        Route::get('/find_patient', 'PatientsController@findPatientBySSN');
-
-    });*/
-
     Route::apiResource('/patient','PatientsController')->middleware('can.access.patient');
 
-
     Route::apiResource('/request','RequestsController')->middleware('can.access.request');
+
+
 
 
 

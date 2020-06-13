@@ -73,11 +73,22 @@ class DonorActivityController extends Controller
      */
     public function update(Request $request, DonorActivity $donorActivity)
     {
-        $validator=$this->validator($request->all());
+        /*$validator=$this->validator($request->all());
         if($validator->fails())
-            return response()->json(['errors'=>$validator->errors()->all()],401);
-        $donorActivity->update($request->all());
-        return response()->json($donorActivity,200);
+            return response()->json(['errors'=>$validator->errors()->all()],401);*/
+        $request->validate([
+            'donor_id' =>'required|numeric',
+            'product_type_id' => 'required|numeric',
+            'temperature' =>'required|string',
+            'weight' =>'required|string',
+            'height' =>'required|string',
+            'status' =>'required|numeric',
+            'comments' =>'sometimes|min:0|max:1000',
+        ]);
+
+            $donorActivity->update($request->all());
+        return new DonorActivityResource($donorActivity);
+
 
     }
 
@@ -101,7 +112,7 @@ class DonorActivityController extends Controller
             'weight' =>'required|string',
             'height' =>'required|string',
             'status' =>'required|numeric',
-            'comments' =>'sometimes|min:3|max:1000',
+            'comments' =>'sometimes|min:0|max:1000',
 
         ];
         return Validator::make($data,$rules);

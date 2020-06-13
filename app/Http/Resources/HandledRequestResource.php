@@ -17,7 +17,7 @@ class HandledRequestResource extends JsonResource
         return [
             'id'=>$this->id,
             'request_id'=>$this->request->id,
-            'blood_products_id'=>$this->products->id,
+            'blood_product_id'=>$this->products->id,
             'handled_by'=>$this->handledBy->user->first_name.' '.$this->handledBy->user->last_name,
             'created_at' => $this->created_at,
 

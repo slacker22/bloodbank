@@ -78,21 +78,22 @@ class StaffController extends Controller
      */
     public function update(Request $request, Staff $staff)
     {
-        $validator=$this->validator($request->all());
+       /* $validator=$this->validator($request->all());
         if($validator->fails())
-            return response()->json(['errors'=>$validator->errors()->all()],401);
-        $data=[];
-        if($staff->user->full_name!= $request->get('full_name'))
-            $data['full_name']=$request->get('full_name');
-        if($request->get('email')==$request->get('confirmed_email')){
-            ///update
-        }else
-            return response()->json(['error'=>'you have to confirm your email'],401);
+            return response()->json(['errors'=>$validator->errors()->all()],401);*/
 
-        if(sizeof($data)>0)
-            $staff->user->update($data);
-//        $staff->user->update($request->all());
-        return response()->json($staff,200);
+        $request->validate([
+            'first_name' => 'required|string|min:2',
+            'last_name' => 'required|string|min:2',
+            'gender' => 'required|numeric',
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/',"unique:users,phone,$staff->user_id"],
+            'email' => 'required|email',
+            'user_type_id' => 'required|numeric',
+        ]);
+
+            $staff->user->update($request->all());
+        return new StaffResource($staff);
+
 
     }
 
@@ -105,6 +106,7 @@ class StaffController extends Controller
     public function destroy(Staff $staff)
     {
         $staff->delete();
+        $staff->user()->delete();
 
 
     }
@@ -115,10 +117,8 @@ class StaffController extends Controller
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
             'gender' => 'required|numeric',
-            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/'],
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:users'],
             'email' => 'required|email',
-            //'user_name' => 'required|string|unique:users',
-            //'password' => 'required',
             'user_type_id' => 'required|numeric',
 
 

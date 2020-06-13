@@ -52,7 +52,7 @@ class PatientsController extends Controller
         return new PatientResource($patient);
     }
 
-    public function findPatientBySSN(Request $request)
+    public function findPatientBySSN($request)
     {
         //validation => ssn is required
         $this->validate($request,
@@ -61,9 +61,13 @@ class PatientsController extends Controller
             ]
         );
 
+
         return new PatientResource(Patients::where('ssn',$request->get('ssn'))->get());
 
+
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -74,11 +78,22 @@ class PatientsController extends Controller
      */
     public function update(Request $request, Patients $patient)
     {
-        $validator=$this->validator($request->all());
+        /*$validator=$this->validator($request->all());
         if($validator->fails())
-            return response()->json(['errors'=>$validator->errors()->all()],401);
+            return response()->json(['errors'=>$validator->errors()->all()],401);*/
+        $request->validate([
+            'first_name' => 'required|string|min:2',
+            'last_name' => 'required|string|min:2',
+            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/',"unique:patients,ssn,$patient->id"],
+            'gender' => 'required|numeric',
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/',"unique:patients,phone,$patient->id"],
+            'blood_group_id' => 'required|numeric',
+        ]);
+
         $patient->update($request->all());
-        return response()->json($patient,200);
+
+        return new PatientResource($patient);
+
     }
 
     /**
@@ -97,9 +112,9 @@ class PatientsController extends Controller
         $rules=[
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
-            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/'],
+            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/','unique:patients'],
             'gender' => 'required|numeric',
-            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/'],
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:patients'],
             'blood_group_id' => 'required|numeric',
 
 

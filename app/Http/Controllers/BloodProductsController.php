@@ -69,11 +69,20 @@ class BloodProductsController extends Controller
      */
     public function update(Request $request, BloodProducts $bloodProduct)
     {
-        $validator=$this->validator($request->all());
+        /*$validator=$this->validator($request->all());
         if($validator->fails())
-            return response()->json(['errors'=>$validator->errors()->all()],401);
-        $bloodProduct->update($request->all());
-        return response()->json($bloodProduct,200);
+            return response()->json(['errors'=>$validator->errors()->all()],401);*/
+
+        $request->validate([
+            'barcode' => "required|numeric|unique:blood_products,barcode,$bloodProduct->id",
+            'blood_group_id' => 'required|numeric',
+            'product_type_id' => 'required|numeric',
+            'storage_location_id' => 'required|numeric',
+            'donor_activity_id' => 'required|numeric',
+        ]);
+
+            $bloodProduct->update($request->all());
+        return new BloodProductResource($bloodProduct);
     }
 
     /**
@@ -85,7 +94,6 @@ class BloodProductsController extends Controller
     public function destroy(BloodProducts $bloodProduct)
     {
 
-
         $bloodProduct->delete();
 
     }
@@ -94,7 +102,7 @@ class BloodProductsController extends Controller
     public function validator($data)
     {
         $rules=[
-            'barcode' => 'required|numeric',
+            'barcode' => 'required|numeric|unique:blood_products',
             'blood_group_id' => 'required|numeric',
             'product_type_id' => 'required|numeric',
             'storage_location_id' => 'required|numeric',

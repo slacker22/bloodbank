@@ -61,7 +61,8 @@ class HandledRequestsController extends Controller
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
         $handledRequest->update($request->all());
-        return response()->json($handledRequest,200);
+        return new HandledRequestResource($handledRequest);
+
     }
 
     /**

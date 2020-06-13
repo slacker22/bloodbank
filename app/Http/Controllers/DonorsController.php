@@ -87,13 +87,22 @@ class DonorsController extends Controller
      */
     public function update(Request $request, Donors $donor)
     {
-        $validator=$this->validator($request->all());
+        /*$validator=$this->validator($request->all());
         if($validator->fails())
-            return response()->json(['errors'=>$validator->errors()->all()],401);
+            return response()->json(['errors'=>$validator->errors()->all()],401);*/
 
+        $request->validate([
+            'first_name' => 'required|string|min:2',
+            'last_name' => 'required|string|min:2',
+            'gender' => 'required|numeric',
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/',"unique:users,phone,$donor->user_id"],
+            'email' => 'sometimes|email',
+            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/',"unique:donors,ssn,$donor->id"],
+            'blood_group_id' => 'required|numeric',
+        ]);
         $donor->user->update($request->only(['first_name','last_name','gender','phone','email']));//user attributes
         $donor->update($request->only(['ssn','blood_group_id']));//donor attributes
-        return response()->json($donor,200);
+        return new DonorResource($donor);
 
 
     }
@@ -107,6 +116,7 @@ class DonorsController extends Controller
     public function destroy(Donors $donor)
     {
         $donor->delete();
+        $donor->user()->delete();
     }
 
     public function validator($data)
@@ -115,9 +125,9 @@ class DonorsController extends Controller
             'first_name' => 'required|string|min:2',
             'last_name' => 'required|string|min:2',
             'gender' => 'required|numeric',
-            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/'],
+            'phone' => ['required','string','regex:/^(010|011|012|015){1}[0-9]{8}$/','unique:users'],
             'email' => 'sometimes|email',
-            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/'],
+            'ssn' => ['required','string','regex:/^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\d\d\d\d\d$/','unique:donors'],
             'blood_group_id' => 'required|numeric',
 
 

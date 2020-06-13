@@ -43,4 +43,9 @@ class Requests extends Model
     {
         return $this->hasMany(HandledRequests::class);
     }
+
+    public function scopeStatus($query, $value)
+    {
+        return $query->where('status','=',$value);
+    }
 }

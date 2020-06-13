@@ -22,7 +22,9 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        return RequestResource::collection(Requests::where('status','=',0)->get());
+        //return RequestResource::collection(Requests::where('status','=',0)->get());
+
+        return RequestResource::collection(Requests::status(0)->get());
     }
 
     /**
@@ -74,7 +76,7 @@ class RequestsController extends Controller
         if($validator->fails())
             return response()->json(['errors'=>$validator->errors()->all()],401);
         $Request->update($request->all());
-        return response()->json($Request,200);
+        return new RequestResource($Request);
     }
 
     /**
