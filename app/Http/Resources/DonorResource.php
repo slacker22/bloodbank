@@ -21,7 +21,7 @@ class DonorResource extends JsonResource
             'last_name'=>$this->user->last_name,
             'full_name'=>$this->user->first_name.' '.$this->user->last_name,
             'ssn'=>$this->ssn,
-            'gender'=>$this->user->gender,
+            'gender'=>intval($this->user->gender),
             'phone'=>$this->user->phone,
             'email'=>$this->user->email,
             'user_name'=>$this->user->user_name,

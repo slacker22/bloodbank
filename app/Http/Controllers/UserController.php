@@ -30,6 +30,15 @@ class UserController extends Controller
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
             $success['user_type']= $user->type->name;
             $success['user_type_id']= $user->type->id;
+            if($user->type->id == 5 )
+            {
+                $success['id']= $user->donor->id;
+            }
+            else{
+                $success['id']= $user->staff->id;
+            }
+
+
             return response()->json(['success' => $success], $this-> successStatus);
         }
         else{
