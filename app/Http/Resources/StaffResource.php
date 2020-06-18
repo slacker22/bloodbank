@@ -24,7 +24,7 @@ class StaffResource extends JsonResource
             'phone'=>$this->user->phone,
             'email'=>$this->user->email,
             'user_name'=>$this->user->user_name,
-            'user_type'=>$this->user->type->id,
+            'user_type_id'=>$this->user->type->id,
             'created_at' => $this->user->created_at,
 
 
