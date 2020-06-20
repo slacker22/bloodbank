@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/database/seeds/StaffTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/StaffTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/DonorActivityResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/DonorActivityResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/DonorResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/DonorResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PatientResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PatientResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/RequestResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/RequestResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +229,8 @@
       <workItem from="1592028680142" duration="14909000" />
       <workItem from="1592232511239" duration="2863000" />
       <workItem from="1592489971998" duration="25000" />
-      <workItem from="1592490031280" duration="4798000" />
+      <workItem from="1592490031280" duration="6372000" />
+      <workItem from="1592582893045" duration="3750000" />
     </task>
     <servers />
   </component>
@@ -236,23 +245,18 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="320" y="233" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591614336935" />
-    <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583873338716">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="437" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1583873338716" />
-    <state x="378" y="201" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592043850769">
-      <screen x="0" y="0" width="1280" height="994" />
+    <state x="403" y="149" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592669928107">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="378" y="199" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584716761899" />
     <state x="378" y="201" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1592043850769" />
     <state x="378" y="199" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1584133003862" />
     <state x="378" y="201" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.994@0.0.1280.994" timestamp="1585335395217" />
-    <state x="403" y="149" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1583596037486" />
+    <state x="403" y="149" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1592669928107" />
     <state x="434" y="167" key="FileChooserDialogImpl" timestamp="1586366431080">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="434" y="167" key="FileChooserDialogImpl/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1586366431080" />
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1583501767412" />
     <state x="232" y="230" key="Vcs.Push.Dialog.v2" timestamp="1585248939925">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -263,19 +267,17 @@
     <state x="355" y="257" key="com.intellij.ide.util.TipDialog/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584355856747" />
     <state x="355" y="260" key="com.intellij.ide.util.TipDialog/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591614322994" />
     <state x="355" y="260" key="com.intellij.ide.util.TipDialog/0.0.1280.994@0.0.1280.994" timestamp="1585452748552" />
-    <state x="379" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583918912772" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1591431235093" />
     <state x="296" y="229" key="run.anything.popup" timestamp="1592040231194">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="296" y="229" key="run.anything.popup/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1592040231194" />
-    <state x="305" y="153" width="672" height="842" key="search.everywhere.popup" timestamp="1591645995409">
-      <screen x="0" y="0" width="1280" height="994" />
+    <state x="325" y="114" width="716" height="624" key="search.everywhere.popup" timestamp="1592584373015">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="305" y="151" width="672" height="833" key="search.everywhere.popup/-1366.0.1366.728/0.0.1280.984@0.0.1280.984" timestamp="1584722112724" />
     <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1591249184395" />
     <state x="305" y="153" width="672" height="842" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1591645995409" />
-    <state x="325" y="112" width="716" height="616" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1583746619355" />
-    <state x="325" y="114" width="716" height="624" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1589231895903" />
+    <state x="325" y="114" width="716" height="624" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1592584373015" />
   </component>
 </project>

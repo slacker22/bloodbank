@@ -113,6 +113,7 @@ class DonorActivityController extends Controller
             'height' =>'required|string',
             'status' =>'required|numeric',
             'comments' =>'sometimes|min:0|max:1000',
+            ''
 
         ];
         return Validator::make($data,$rules);

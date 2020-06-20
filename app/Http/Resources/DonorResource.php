@@ -17,6 +17,7 @@ class DonorResource extends JsonResource
         return [
 
             'id'=>$this->id,
+            'user_id'=>$this->user->id,
             'first_name'=>$this->user->first_name,
             'last_name'=>$this->user->last_name,
             'full_name'=>$this->user->first_name.' '.$this->user->last_name,
@@ -25,9 +26,9 @@ class DonorResource extends JsonResource
             'phone'=>$this->user->phone,
             'email'=>$this->user->email,
             'user_name'=>$this->user->user_name,
-            'user_type'=>$this->user->type->name,
-            'blood_group'=>$this->group->name,
-            'donor_type'=>$this->type->name,
+            'user_type_id'=>$this->user->type->id,
+            'blood_group_id'=>$this->group->id,
+            'donor_type_id'=>$this->type->id,
             'created_at' => $this->created_at,
 
 
