@@ -21,7 +21,7 @@ class PatientResource extends JsonResource
             'full_name'=>$this->first_name.' '.$this->last_name,
             'ssn'=>$this->ssn,
             'gender'=>intval($this->gender),
-            'blood_group'=>$this->group->id,
+            'blood_group_id'=>$this->group->name,
             'phone'=>$this->phone,
             'address'=>$this->address,
             'created_at' => $this->created_at,

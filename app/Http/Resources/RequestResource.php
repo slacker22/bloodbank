@@ -20,13 +20,13 @@ class RequestResource extends JsonResource
             'first_name'=>$this->patient->first_name,
             'last_name'=>$this->patient->last_name,
             'full_name'=>$this->patient->first_name.' '.$this->patient->last_name,
-            'blood_group_id'=>$this->group->id,
-            'product_type_id'=>$this->type->id,
-            'quantity'=>$this->quantity,
-            'priority'=>$this->priority,
+            'blood_group_id'=>$this->group->name,
+            'product_type_id'=>$this->type->name,
+            'quantity'=>intval($this->quantity),
+            'priority'=>intval($this->priority),
             'required_date'=>$this->required_date,
             'submitted_by'=>$this->submittedBy->user->first_name.' '.$this->submittedBy->user->last_name,
-            'status'=>$this->status,
+            'status'=>intval($this->status),
             'created_at' => $this->created_at,
 
 
