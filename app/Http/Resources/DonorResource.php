@@ -28,6 +28,7 @@ class DonorResource extends JsonResource
             'user_name'=>$this->user->user_name,
             'user_type_id'=>$this->user->type->id,
             'blood_group_id'=>$this->group->id,
+            'blood_group'=>$this->group->name,
             'donor_type_id'=>$this->type->id,
             'created_at' => $this->created_at,
 

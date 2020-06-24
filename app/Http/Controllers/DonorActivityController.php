@@ -57,10 +57,10 @@ class DonorActivityController extends Controller
      */
     public function show(DonorActivity $donorActivity)
     {
-        //return new DonorActivityResource($donorActivity);
+        return new DonorActivityResource($donorActivity);
 
-        $id = $donorActivity->id;
-        return DonorActivityResource::collection(DonorActivity::whereIn('donor_id',[$id])->get());
+        //$id = $donorActivity->id;
+        //return DonorActivityResource::collection(DonorActivity::whereIn('donor_id',[$id])->get());
 
     }
 

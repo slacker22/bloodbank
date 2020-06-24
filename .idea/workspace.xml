@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PatientResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PatientResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/RequestResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/RequestResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/DonorActivityResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/DonorActivityResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/DonorResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/DonorResource.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +228,8 @@
       <workItem from="1592582893045" duration="4586000" />
       <workItem from="1592758512492" duration="1655000" />
       <workItem from="1592762285886" duration="793000" />
+      <workItem from="1592844341661" duration="2538000" />
+      <workItem from="1593015102214" duration="1798000" />
     </task>
     <servers />
   </component>

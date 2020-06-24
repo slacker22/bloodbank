@@ -21,10 +21,11 @@ class DonorActivityResource extends JsonResource
             'last_name'=>$this->donor->user->last_name,
             'full_name'=>$this->donor->user->first_name.' '.$this->donor->user->last_name,
             'product_type_id'=>$this->type->id,
+            'product_type'=>$this->type->name,
             'temperature'=>$this->temperature,
             'weight'=>$this->weight,
             'height'=>$this->height,
-            'status'=>$this->status,
+            'status'=>intval($this->status),
             'comments'=>$this->comments,
             'created_at'=>$this->created_at,
             'viruses'=>$this->viruses->map(function($virus){
