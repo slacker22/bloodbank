@@ -20,11 +20,14 @@ class BloodProductResource extends JsonResource
             'id'=>$this->id,
             'barcode'=>$this->barcode,
             'blood_group'=>$this->group->name,
+            'blood_group_id'=>$this->group->id,
             'product_type'=>$this->type->name,
+            'product_type_id'=>$this->type->id,
             'storage_location'=>$this->location->name,
+            'storage_location_id'=>$this->location->id,
             'created_at' => $this->created_at,
             'expire_on'=>$this->expire_on,
-            'donor_activity_id'=>$this->donor_activity_id,
+            'donor_activity_id'=>intval($this->donor_activity_id),
 
 
         ];

@@ -60,6 +60,20 @@ class BloodProductsController extends Controller
 
     }
 
+    public function findProductByBarcode(Request $request)
+    {
+
+        $this->validate($request,
+            [
+                'barcode' => 'required|numeric',
+            ]
+        );
+
+        return new BloodProductResource(BloodProducts::where('barcode',$request->get('barcode'))->first());
+
+
+    }
+
     /**
      * Update the specified resource in storage.
      *

@@ -14,7 +14,8 @@ class CreateDonorActivitiesVirusesPivot extends Migration
     public function up()
     {
         Schema::create('donor_activity_viruses', function (Blueprint $table) {
-            $table->id();
+            //$table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('donor_activity_id');
             $table->foreign('donor_activity_id')->references('id')->on('donor_activities');
             $table->unsignedBigInteger('viruses_id');

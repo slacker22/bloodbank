@@ -44,7 +44,8 @@ class DonorActivityController extends Controller
         //$donorActivity= $donor->donorActivities()->create($request->all());
 //       DonorActivity::create($request->all());
         $donorActivity= DonorActivity::create($request->all());
-     if(sizeof( $request->get('viruses'))>0)
+     //if(sizeof( $request->get('viruses'))>0)
+        if(!empty($request->get('viruses')))
         $donorActivity->viruses()->syncWithoutDetaching( $request->get('viruses'));
         return new DonorActivityResource($donorActivity);
     }
@@ -84,9 +85,12 @@ class DonorActivityController extends Controller
             'height' =>'required|string',
             'status' =>'required|numeric',
             'comments' =>'sometimes|min:0|max:1000',
+            'viruses' =>'sometimes|array',
         ]);
 
             $donorActivity->update($request->all());
+        if(!empty($request->get('viruses')))
+            $donorActivity->viruses()->sync( $request->get('viruses'));
         return new DonorActivityResource($donorActivity);
 
 
@@ -113,7 +117,7 @@ class DonorActivityController extends Controller
             'height' =>'required|string',
             'status' =>'required|numeric',
             'comments' =>'sometimes|min:0|max:1000',
-            ''
+            'viruses' =>'sometimes|array',
 
         ];
         return Validator::make($data,$rules);
