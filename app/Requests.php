@@ -48,4 +48,9 @@ class Requests extends Model
     {
         return $query->where('status','=',$value);
     }
+
+    public function scopeBy($query, $value)
+    {
+        return $query->where('submitted_by','=',$value);
+    }
 }

@@ -4,11 +4,10 @@
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BloodProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorActivityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/DonorActivityResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/DonorActivityResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_05_184613_create_donor_activities_viruses_pivot.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_05_184613_create_donor_activities_viruses_pivot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/HandledRequestResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/HandledRequestResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Requests.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Requests.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +231,9 @@
       <workItem from="1592758512492" duration="1655000" />
       <workItem from="1592762285886" duration="793000" />
       <workItem from="1592844341661" duration="2538000" />
-      <workItem from="1593015102214" duration="11644000" />
+      <workItem from="1593015102214" duration="12238000" />
+      <workItem from="1593280821313" duration="38000" />
+      <workItem from="1593280912789" duration="9453000" />
     </task>
     <servers />
   </component>

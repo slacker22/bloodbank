@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\BloodProducts;
 use App\HandledRequests;
+use App\Http\Resources\BloodProductResource;
 use App\Http\Resources\HandledRequestResource;
 use App\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class HandledRequestsController extends Controller
@@ -28,12 +31,28 @@ class HandledRequestsController extends Controller
      */
     public function store(Request $request)
     {
-        $validator=$this->validator($request->all());
+        /*$validator=$this->validator($request->all());
         if($validator->fails())
-            return response()->json(['errors'=>$validator->errors()->all()],401);
-        $handledRequest = HandledRequests::create($request->all());
-        //update request status from zero to one after handling it.
+            return response()->json(['errors'=>$validator->errors()->all()],401);*/
+
+        $request->validate([
+            'request_id' => 'required|numeric',
+            'handled_by' => 'required|numeric',
+            'barcode' => 'required|numeric',
+        ]);
+
+        $bloodProduct = BloodProducts::where('barcode',$request->get('barcode'))->value('id');
+
+
+        $handledRequest = HandledRequests::create([
+            'request_id' => $request->get('request_id'),
+            'handled_by' => $request->get('handled_by'),
+            'blood_product_id' => $bloodProduct,
+        ]);
+        //update request status from zero to one after handling a request
         Requests::where('id', $handledRequest->request_id)->update(['status' => 1]);
+        //delete blood product after handling a request
+        BloodProducts::where('id','=',$bloodProduct)->delete();
         return new HandledRequestResource($handledRequest);
     }
 

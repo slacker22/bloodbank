@@ -24,7 +24,17 @@ class RequestsController extends Controller
     {
         //return RequestResource::collection(Requests::where('status','=',0)->get());
 
-        return RequestResource::collection(Requests::status(0)->get());
+        //return RequestResource::collection(Requests::status(0)->get());
+
+        $user_type_id = auth()->user()->type->id;
+        $submitted_by = auth()->user()->staff->id;
+        if($user_type_id == 2){
+            return RequestResource::collection(Requests::status(0)->get());
+        }
+        else{
+            return RequestResource::collection(Requests::by($submitted_by)->get());
+
+        }
     }
 
     /**
