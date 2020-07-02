@@ -5,9 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HandledRequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/HandledRequestResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/HandledRequestResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Requests.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Requests.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,6 +231,9 @@
       <workItem from="1593015102214" duration="12238000" />
       <workItem from="1593280821313" duration="38000" />
       <workItem from="1593280912789" duration="9453000" />
+      <workItem from="1593700192042" duration="15000" />
+      <workItem from="1593700242605" duration="5978000" />
+      <workItem from="1593710542041" duration="387000" />
     </task>
     <servers />
   </component>

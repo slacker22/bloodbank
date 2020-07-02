@@ -38,22 +38,51 @@ class HandledRequestsController extends Controller
         $request->validate([
             'request_id' => 'required|numeric',
             'handled_by' => 'required|numeric',
-            'barcode' => 'required|numeric',
+            'barcode' => 'required|array',
+            'barcode.*' => 'required|numeric',
         ]);
 
-        $bloodProduct = BloodProducts::where('barcode',$request->get('barcode'))->value('id');
+        $bloodProduct = BloodProducts::whereIn('barcode',$request->get('barcode'))->pluck('id');
+
+        /*$products = $bloodProduct->map(function($product)use($request){
+            $handledRequest = HandledRequests::create([
+                'request_id' => $request->get('request_id'),
+                'handled_by' => $request->get('handled_by'),
+                'blood_product_id' => $product,
+            ]);
+
+            //update request status from zero to one after handling a request
+            Requests::where('id', $handledRequest->request_id)->update(['status' => 1]);
+            //delete blood product after handling a request
+
+            BloodProducts::where('id','=',$product)->delete();
+            //return new HandledRequestResource($handledRequest);
 
 
-        $handledRequest = HandledRequests::create([
-            'request_id' => $request->get('request_id'),
-            'handled_by' => $request->get('handled_by'),
-            'blood_product_id' => $bloodProduct,
-        ]);
-        //update request status from zero to one after handling a request
-        Requests::where('id', $handledRequest->request_id)->update(['status' => 1]);
-        //delete blood product after handling a request
-        BloodProducts::where('id','=',$bloodProduct)->delete();
-        return new HandledRequestResource($handledRequest);
+        });
+        return HandleRequestResource::collection($products);*/
+
+
+        $products =$bloodProduct->map(function($product)use($request){
+            $handledRequest = HandledRequests::create([
+                'request_id' => $request->get('request_id'),
+                'handled_by' => $request->get('handled_by'),
+                'blood_product_id' => $product,
+            ]);
+
+            //update request status from zero to one after handling a request
+            Requests::where('id', $handledRequest->request_id)->update(['status' => 1]);
+            //delete blood product after handling a request
+
+            BloodProducts::where('id','=',$product)->delete();
+//            dd($handledRequest);
+            return $handledRequest;
+        });
+        //dd($products);
+        return HandledRequestResource::collection($products);
+
+
+
     }
 
     /**
