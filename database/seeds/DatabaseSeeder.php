@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             BloodProductsTableTableSeeder::class,
             PatientsTableSeeder::class,
             RequestsTableSeeder::class,
-            HandledRequestsTableSeeder::class
+            //HandledRequestsTableSeeder::class
 
         ]);
 

@@ -14,6 +14,7 @@ class RequestsController extends Controller
 
         $this->middleware('can.access.request')->only(['index','show']);
         $this->middleware('doctor')->only(['store','update','destroy']);
+
     }
     /**
      * Display a listing of the resource.
@@ -88,6 +89,7 @@ class RequestsController extends Controller
         $Request->update($request->all());
         return new RequestResource($Request);
     }
+
 
     /**
      * Remove the specified resource from storage.

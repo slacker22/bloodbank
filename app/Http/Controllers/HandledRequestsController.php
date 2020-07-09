@@ -6,6 +6,7 @@ use App\BloodProducts;
 use App\HandledRequests;
 use App\Http\Resources\BloodProductResource;
 use App\Http\Resources\HandledRequestResource;
+use App\Http\Resources\RequestResource;
 use App\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,36 +38,20 @@ class HandledRequestsController extends Controller
 
         $request->validate([
             'request_id' => 'required|numeric',
-            'handled_by' => 'required|numeric',
+            'status' =>'required|numeric',
+            //'handled_by' => 'required|numeric',
             'barcode' => 'required|array',
             'barcode.*' => 'required|numeric',
         ]);
 
+        if($request->get('status') ==1){
+
         $bloodProduct = BloodProducts::whereIn('barcode',$request->get('barcode'))->pluck('id');
-
-        /*$products = $bloodProduct->map(function($product)use($request){
-            $handledRequest = HandledRequests::create([
-                'request_id' => $request->get('request_id'),
-                'handled_by' => $request->get('handled_by'),
-                'blood_product_id' => $product,
-            ]);
-
-            //update request status from zero to one after handling a request
-            Requests::where('id', $handledRequest->request_id)->update(['status' => 1]);
-            //delete blood product after handling a request
-
-            BloodProducts::where('id','=',$product)->delete();
-            //return new HandledRequestResource($handledRequest);
-
-
-        });
-        return HandleRequestResource::collection($products);*/
-
 
         $products =$bloodProduct->map(function($product)use($request){
             $handledRequest = HandledRequests::create([
                 'request_id' => $request->get('request_id'),
-                'handled_by' => $request->get('handled_by'),
+                'handled_by' => auth()->user()->staff->id,
                 'blood_product_id' => $product,
             ]);
 
@@ -75,14 +60,17 @@ class HandledRequestsController extends Controller
             //delete blood product after handling a request
 
             BloodProducts::where('id','=',$product)->delete();
-//            dd($handledRequest);
             return $handledRequest;
         });
-        //dd($products);
-        return HandledRequestResource::collection($products);
 
+            return HandledRequestResource::collection($products);
 
+        }else{
 
+            Requests::where('id', $request->get('request_id'))->update(['status' => 2]);
+
+            return new RequestResource(Requests::where('id',$request->get('request_id'))->first());
+        }
     }
 
     /**

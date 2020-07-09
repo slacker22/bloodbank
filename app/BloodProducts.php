@@ -37,6 +37,8 @@ class BloodProducts extends Model
         return $this->hasMany(HandledRequests::class);
     }
 
+
+
     public function activity()
     {
         return $this->belongsTo(DonorActivity::class,'donor_activity_id');

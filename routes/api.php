@@ -51,6 +51,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
         Route::get('/find_donor','DonorsController@findDonorBySSN')->middleware('blood.bank.staff');
         Route::get('/find_product','BloodProductsController@findProductByBarcode')->middleware('blood.bank.staff');
+
         //blood bank staff
         Route::group(['middleware'=>'blood.bank.staff'],function (){
             Route::apiResources([

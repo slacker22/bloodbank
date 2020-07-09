@@ -29,7 +29,7 @@ class DonorActivityResource extends JsonResource
             'comments'=>$this->comments,
             'created_at'=>$this->created_at,
             'viruses'=>$this->viruses->map(function ($virus){
-                return $virus->id;
+                return ['id'=>$virus->id,'name'=>$virus->name];
             }),
 
             /* 'viruses'=>$this->viruses->map(function($virus){

@@ -24,6 +24,7 @@ class HandledRequests extends Model
         return $this->belongsTo(BloodProducts::class,'blood_product_id');
     }
 
+
     public function handledBy()
     {
         return $this->belongsTo(Staff::class,'handled_by');
