@@ -15,7 +15,7 @@ class CreateHandledRequestsTable extends Migration
     public function up()
     {
         Schema::create('handled_requests', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('request_id');
             $table->foreign('request_id')->references('id')->on('requests');
             $table->unsignedBigInteger('blood_product_id');
