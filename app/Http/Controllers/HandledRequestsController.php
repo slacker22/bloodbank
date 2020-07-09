@@ -39,16 +39,20 @@ class HandledRequestsController extends Controller
         $request->validate([
             'request_id' => 'required|numeric',
             'status' =>'required|numeric',
-            //'handled_by' => 'required|numeric',
-            'barcode' => 'required|array',
-            'barcode.*' => 'required|numeric',
+            //'barcode' => 'required|array',
+            //'barcode.*' => 'required|numeric',
         ]);
 
         if($request->get('status') ==1){
 
-        $bloodProduct = BloodProducts::whereIn('barcode',$request->get('barcode'))->pluck('id');
+            $request->validate([
+                'barcode' => 'required|array',
+                'barcode.*' => 'required|numeric',
+            ]);
 
-        $products =$bloodProduct->map(function($product)use($request){
+        $bloodProduct = BloodProducts::whereIn('barcode',$request->get('barcode'))->pluck('id');
+            //$products =
+            $bloodProduct->map(function($product)use($request){
             $handledRequest = HandledRequests::create([
                 'request_id' => $request->get('request_id'),
                 'handled_by' => auth()->user()->staff->id,
@@ -60,12 +64,13 @@ class HandledRequestsController extends Controller
             //delete blood product after handling a request
 
             BloodProducts::where('id','=',$product)->delete();
-            return $handledRequest;
+            //return $handledRequest;
         });
 
-            return HandledRequestResource::collection($products);
+            //return HandledRequestResource::collection($products);
+            return new RequestResource(Requests::where('id',$request->get('request_id'))->first());
 
-        }else{
+        }elseif($request->get('status') ==2){
 
             Requests::where('id', $request->get('request_id'))->update(['status' => 2]);
 
