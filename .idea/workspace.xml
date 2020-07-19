@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/BloodProductsTableTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BloodProductsTableTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +240,12 @@
       <workItem from="1594326818683" duration="122000" />
       <workItem from="1594326949677" duration="77000" />
       <workItem from="1594331710768" duration="2186000" />
-      <workItem from="1594647144199" duration="2344000" />
+      <workItem from="1594647144199" duration="2783000" />
+      <workItem from="1594658989600" duration="588000" />
+      <workItem from="1594660044436" duration="804000" />
+      <workItem from="1594936814517" duration="25000" />
+      <workItem from="1594936867505" duration="1310000" />
+      <workItem from="1595189754991" duration="2938000" />
     </task>
     <servers />
   </component>

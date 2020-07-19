@@ -37,7 +37,16 @@ class BloodProductsTableTableSeeder extends Seeder
                 'product_type_id'=>3,
                 'storage_location_id'=>3,
                 'donor_activity_id'=>3,
-                'expire_on'=>'2020-06-01 07:30:46',
+                'expire_on'=>'2020-07-21 07:30:46',
+
+            ],
+            [
+                'barcode'=>'3678945621',
+                'blood_group_id'=>1,
+                'product_type_id'=>1,
+                'storage_location_id'=>1,
+                'donor_activity_id'=>1,
+                'expire_on'=>'2020-07-21 07:30:46',
 
             ],
 
