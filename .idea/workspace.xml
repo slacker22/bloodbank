@@ -4,7 +4,6 @@
     <list default="true" id="f8256c80-c483-4a89-bd36-3b8bd39bf6ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BloodProductsTableTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BloodProductsTableTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,6 +245,9 @@
       <workItem from="1594936814517" duration="25000" />
       <workItem from="1594936867505" duration="1310000" />
       <workItem from="1595189754991" duration="2938000" />
+      <workItem from="1595255434737" duration="814000" />
+      <workItem from="1595288521145" duration="158000" />
+      <workItem from="1595288695915" duration="1212000" />
     </task>
     <servers />
   </component>
@@ -269,8 +271,23 @@
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1594305787536">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="434" y="167" key="FileChooserDialogImpl/-1366.0.1366.738/0.0.1280.994@0.0.1280.994" timestamp="1586366431080" />
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1594305787536" />
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1595255816040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1595255816040" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1595255816040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1595255816040" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1595255816039">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1595255816039" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1595255816040">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1595255816040" />
     <state x="355" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1591614322994">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
